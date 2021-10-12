@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LilyActivate : MonoBehaviour
 {
-    private bool getWeapon = false;
+    public bool upgrade = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +21,10 @@ public class LilyActivate : MonoBehaviour
         }*/
 
         if ((gameObject.GetComponent<dialogueTrigger>().dialogueComplete == true)
-            &&(getWeapon == false))
+            &&(upgrade == false))
         {
-            Debug.Log("upgrade weapon");
-            getWeapon = true;
+            Debug.Log("upgrade weapon, jump");
+            upgrade = true;
         }
     }
 }

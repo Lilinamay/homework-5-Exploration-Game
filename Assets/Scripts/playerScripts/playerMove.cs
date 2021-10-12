@@ -15,11 +15,24 @@ public class playerMove : MonoBehaviour
     [SerializeField] private float animationSpeed = 0.3f;
     private float timer;
     private int currentSpriteIndex = 0;
+    
 
     public float speed;
     public float drag;
     public float jumpHeight;
     public float gravityMultiplier;
+    //private bool dash = false;
+    public float dashSpeed;
+    [SerializeField]
+    private bool duringDash = false;
+    [SerializeField]
+    private bool haveDashed = false;
+    private float dashTimer = 0;
+
+    //private bool duringSecondJump = false;
+    [SerializeField]
+    private bool haveSecondJump = false;
+
 
     public static bool faceRight = true;
 
@@ -39,9 +52,13 @@ public class playerMove : MonoBehaviour
     void Update()
     {
         checkKey();
-        JumpPhysics();
+        if (!duringDash)
+        {
+            JumpPhysics();
+        }
         exitOnfloor();
         timer += Time.deltaTime;
+        
     }
 
     void checkKey()
@@ -61,11 +78,50 @@ public class playerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)&& onFloor) //start jump
         {
-            JumpMovement();
+            JumpMovement(jumpHeight, 2f);
+
             Debug.Log("jump");
-        } else if (!onFloor)    //jump
+        } else if (!onFloor)    //during jump
         {
-            myBody.velocity += Vector2.up * Physics2D.gravity.y * (jumpHeight - 1f) * Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<LilyActivate>().upgrade == true)    //during jump, can dash
+            {
+                if (haveDashed == false)
+                {
+                    //dash = true;
+                    duringDash = true;
+                    haveDashed = true;
+                    Debug.Log("jump2");
+                }
+
+                else if (haveDashed == true)
+                {
+                    if (haveSecondJump == false)
+                    {
+                        Debug.Log("second jump");
+                        SecondJumpMovement();
+                        //duringSecondJump = true;
+                        haveSecondJump = true;
+                    }
+
+                }
+            }
+            else
+            {
+                myBody.velocity += Vector2.up * Physics2D.gravity.y * (jumpHeight - 1f) * Time.deltaTime;       //normal jump
+            }
+
+            if (duringDash)
+            {                
+               dashTimer += Time.deltaTime;
+               Debug.Log("timer" + dashTimer);
+               DashMovement(dashSpeed);
+               if (dashTimer > 0.1f)
+                {
+                    duringDash = false;
+                    //dash = false;
+                    dashTimer = 0;
+                } 
+            }    
         }
 
     }
@@ -94,10 +150,34 @@ public class playerMove : MonoBehaviour
         }
         myRenderer.sprite = currentSprite[currentSpriteIndex];
     }
-    void JumpMovement()
+    void JumpMovement(float jumpHeightValue, float dragValue)
     {
-        myBody.velocity = new Vector3(myBody.velocity.x, jumpHeight);
-        drag = 2f; //jump forward more
+        myBody.velocity = new Vector3(myBody.velocity.x, jumpHeightValue);
+        drag = dragValue; //jump forward more
+    }
+
+    void DashMovement(float dashSpeed)
+    {
+        if (faceRight)
+        {
+            myBody.velocity = new Vector3(dashSpeed, 0);
+        }
+        if (faceRight == false)
+        {
+            myBody.velocity = new Vector3(-dashSpeed, 0);
+        }
+    }
+
+    void SecondJumpMovement()
+    {
+        if (faceRight)
+        {
+            myBody.velocity = new Vector3(4, myBody.velocity.y+ jumpHeight );
+        }
+        if (faceRight == false)
+        {
+            myBody.velocity = new Vector3(-4, myBody.velocity.y + jumpHeight);
+        }
     }
 
     void JumpPhysics()
@@ -124,6 +204,11 @@ public class playerMove : MonoBehaviour
             onFloor = true;
             //onLand = true;
             drag = 0.9f;
+            //dash = false;   //reset dash
+            //dashTimer = 0;
+            haveDashed =false;
+            haveSecondJump = false;
+            //duringSecondJump = false;
         }
         if(collision.gameObject.tag == "ice")
         {

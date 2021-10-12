@@ -53,11 +53,8 @@ public class playerInteract : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "enemy")
-        {
-            
+        { 
             dead = true;
-
-
             //AudioSource.PlayClipAtPoint(enemy, transform.position);
             Debug.Log("enemy");
             //deadText.text = ("Press P to Restart");
@@ -88,7 +85,7 @@ public class playerInteract : MonoBehaviour
 
     void sparkleActivate()
     {
-        if (starCount >= 12)
+        if (starCount >= 2)
         {
             sparkleAchieved = true;
         }

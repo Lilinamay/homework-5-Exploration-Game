@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class beanBehavior : MonoBehaviour
 {
-    //int hit = 0;
     public playerShoot pShoot;
     public enemyBehavior enemyHealth;   //change enemyhealth
-    //public playerShoot pBullets;
-    public bool test;
-    // Start is called before the first frame update
+
     void Start()
     {
         
@@ -25,16 +22,17 @@ public class beanBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemy")
         {
-            //pShoot.hit++;           //count hits
-            Destroy(gameObject);    //destroy bullet
-            /*if (pShoot.hit >= 3)    //hit>3 kill enemy
+            if (collision.gameObject.name == "megaEnemy")
             {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }*/
-            collision.gameObject.GetComponent<enemyBehavior>().enemyHealth--;
-            Debug.Log(collision.gameObject.GetComponent<enemyBehavior>().enemyHealth);
-
+                Destroy(gameObject);    //destroy bullet
+                Debug.Log("that's not going to work");
+            }
+            else
+            {
+                Destroy(gameObject);    //destroy bullet
+                collision.gameObject.GetComponent<enemyBehavior>().enemyHealth--;
+                Debug.Log(collision.gameObject.GetComponent<enemyBehavior>().enemyHealth);
+            }
         }
     }
 
