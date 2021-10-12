@@ -8179,7 +8179,7 @@ GameObject:
   - component: {fileID: 2047415593}
   - component: {fileID: 2047415592}
   m_Layer: 0
-  m_Name: megaEnemy (1)
+  m_Name: megaEnemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8193,7 +8193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047415590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.9, y: 0.6, z: 0.8611022}
+  m_LocalPosition: {x: -22.2, y: -1.2, z: 0.8611022}
   m_LocalScale: {x: 2.8336446, y: 3.2129302, z: 1}
   m_Children: []
   m_Father: {fileID: 1199456272}
