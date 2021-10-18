@@ -25,6 +25,7 @@ public class LilyActivate : MonoBehaviour
         {
             Debug.Log("upgrade weapon, jump");
             upgrade = true;
+
         }
     }
 }

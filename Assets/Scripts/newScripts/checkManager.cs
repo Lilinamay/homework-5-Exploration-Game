@@ -14,7 +14,10 @@ public class checkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SaveBullet = FindObjectOfType<playerShoot>().bulletCount;
+        SaveSparkle = 0;
+        SaveX = transform.position.x;
+        SaveY = transform.position.y;
     }
 
     // Update is called once per frame

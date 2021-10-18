@@ -29,6 +29,7 @@ public class playerMove : MonoBehaviour
     [SerializeField]
     private bool haveDashed = false;
     private float dashTimer = 0;
+    public float sparkleJump = 3;
 
     //private bool duringSecondJump = false;
     [SerializeField]
@@ -86,23 +87,41 @@ public class playerMove : MonoBehaviour
         } else if (!onFloor)    //during jump
         {
             if (Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<LilyActivate>().upgrade == true)    //during jump, can dash
-            {
+            {   
                 if (haveDashed == false)
                 {
-                    //dash = true;
-                    duringDash = true;
-                    haveDashed = true;
-                    Debug.Log("jump2");
-                }
+                    if (FindObjectOfType<circleSparkBar>().sparkles >= sparkleJump)
+                    {
+                        //dash = true;
+                        duringDash = true;
+                        haveDashed = true;
+                        Debug.Log("jump2");
+                        FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleJump;
+                    }
+                    else
+                    {
+                        Debug.Log("out of power");
+                    }
+                 }
+                
 
                 else if (haveDashed == true)
                 {
                     if (haveSecondJump == false)
                     {
-                        Debug.Log("second jump");
-                        SecondJumpMovement();
-                        //duringSecondJump = true;
-                        haveSecondJump = true;
+                        if (FindObjectOfType<circleSparkBar>().sparkles >= sparkleJump)
+                        {
+                            Debug.Log("second jump");
+                            SecondJumpMovement();
+                            //duringSecondJump = true;
+                            haveSecondJump = true;
+                            FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleJump;
+                        }
+                        else
+                        {
+                            Debug.Log("out of power");
+                        }
+
                     }
 
                 }
