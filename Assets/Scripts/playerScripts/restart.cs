@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class restart : MonoBehaviour
 {
     SpriteRenderer myRenderer;
-
+    float timer;
+    public bool respawn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class restart : MonoBehaviour
     void Update()
     {
         death();
-        playerRestart();
+        //playerRestart();
 
     }
 
@@ -30,12 +31,24 @@ public class restart : MonoBehaviour
             myRenderer.enabled = false;     //invisible to the player AKA dead without losing the camera
             gameObject.GetComponent<playerMove>().speed = 0;
             gameObject.GetComponent<playerMove>().jumpHeight = 0;
-            //gameObject.GetComponent<SpriteRenderer>.
-            //StopCoroutine(gameObject.GetComponent<CamBehavior>());
+            timer += Time.deltaTime;
+            if (timer > 1)
+            {
+                myRenderer.enabled = true;
+                respawn = true;
+                gameObject.GetComponent<playerMove>().speed = 5;
+                gameObject.GetComponent<playerMove>().jumpHeight = gameObject.GetComponent<playerMove>().jumpheightInput;
+                gameObject.GetComponent<playerInteract>().dead = false;
+                timer = 0;
+            }
+        }
+        else
+        {
+            timer = 0;
         }
     }
 
-    void playerRestart()
+    /*void playerRestart()
     {
         if (gameObject.GetComponent<playerInteract>().dead == true)
         {
@@ -44,5 +57,5 @@ public class restart : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
-    }
+    }*/
 }

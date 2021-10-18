@@ -42,14 +42,14 @@ public class CamBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.GetComponent<playerInteract>().dead == false)
-        {
+        //if (player.GetComponent<playerInteract>().dead == false)
+        //{
             camY = Mathf.Clamp(followTransform.position.y, yMin + camSize, yMax - camSize) + 1f;
             camX = Mathf.Clamp(followTransform.position.x, xMin + camRatio, xMax - camRatio);
 
 
             smoothPos = Vector3.Lerp(gameObject.transform.position, new Vector3(camX, camY, gameObject.transform.position.z), smoothRate); //slowly lag move cam to position
             gameObject.transform.position = smoothPos;
-        }
+        //}
     }
 }

@@ -19,6 +19,7 @@ public class playerMove : MonoBehaviour
 
     public float speed;
     public float drag;
+    public float jumpheightInput;
     public float jumpHeight;
     public float gravityMultiplier;
     //private bool dash = false;
@@ -46,6 +47,7 @@ public class playerMove : MonoBehaviour
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
+        jumpHeight = jumpheightInput;
     }
 
     // Update is called once per frame

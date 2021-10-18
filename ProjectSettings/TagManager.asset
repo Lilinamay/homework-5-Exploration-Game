@@ -11,6 +11,8 @@ TagManager:
   - enemy
   - bullet
   - test
+  - ball
+  - checkPoint
   layers:
   - Default
   - TransparentFX

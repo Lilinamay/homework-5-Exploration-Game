@@ -27,7 +27,7 @@ public class playerShoot : MonoBehaviour
     void Update()
     {
         inputReset();
-        upgrade();
+        //upgrade();
         if (gameObject.GetComponent<playerInteract>().dead == false)        //player alive and have positions
         {
             if (bulletCount >= 1)   //key press only once and have bullets
@@ -122,7 +122,7 @@ public class playerShoot : MonoBehaviour
         
     }
 
-    void upgrade()
+    /*void upgrade()
     {
         if (Lily2.GetComponent<LilyActivate>().upgrade == true)
         {
@@ -132,7 +132,7 @@ public class playerShoot : MonoBehaviour
         {
             holdTime = 99999;
         }
-    }
+    }*/
 
     void inputReset()
     {

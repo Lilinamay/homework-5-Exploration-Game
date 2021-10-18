@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
-public class dialogueTrigger : MonoBehaviour
+public class dIalogueTrigger2 : MonoBehaviour
 {
     [SerializeField] Dialogue dialogue;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] Image avatarSprite;
     [SerializeField] Image textboxSprite;
-    
 
-    bool triggered = false;
-    public bool dialogueComplete = false;
-    public bool ConvEnter = false;
+    private bool haveTriggered = false;
+    private bool triggered = false;
+    private bool first = false;
+    public bool dialogue2Complete = false;
+
 
     [SerializeField] Queue<string> sentences;
     [SerializeField] Queue<string> names; //a list of strings
     [SerializeField] Queue<Sprite> avatars;
     [SerializeField] Queue<Sprite> textboxs;
-
-    [SerializeField] GameObject indicator;
-    GameObject newIndic;
 
     //GameObject player;
 
@@ -37,18 +34,15 @@ public class dialogueTrigger : MonoBehaviour
         //textboxSprite.gameObject.SetActive(false);
         avatarSprite.enabled = false;
         textboxSprite.enabled = false; //disable without dialogue
-
-        newIndic = Instantiate(indicator, transform.position, transform.rotation); //default to player's position/rotation
-        newIndic.transform.SetParent(gameObject.transform);
-        newIndic.transform.localPosition = new Vector3(0.5f, 0.5f); ///local position relative to player
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void triggerConversation()
     {
-        if (collision.name == "player")
-        {   
+        if (gameObject.GetComponent<megaEnemy>().ballHit == true && haveTriggered == false)
+        {
+            Debug.Log("trigger conversation");
             triggered = true;
-
+            haveTriggered = true;
             sentences.Clear();
             names.Clear();
 
@@ -77,14 +71,14 @@ public class dialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.name == "player")
         {
             triggered = false;
             EndDialogue();
         }
-    }
+    }*/
 
     void EndDialogue()
     {
@@ -103,30 +97,25 @@ public class dialogueTrigger : MonoBehaviour
         textboxs.Clear();
 
         FindObjectOfType<playerMove>().speed = 5;
-        FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
-
-        dialogueComplete = true;
-        ConvEnter = false;
+        FindObjectOfType<playerMove>().jumpHeight = 40;     //unfreeze player
+        haveTriggered = false;
+        dialogue2Complete = true;
+        first = false;
+        triggered = false;
+        gameObject.GetComponent<megaEnemy>().ball = 0;
+        gameObject.GetComponent<megaEnemy>().ballHit = false;
     }
+
 
     void Update()
     {
+        
+        triggerConversation();
         if (triggered)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
+        {   if (first == false)
             {
-                Destroy(newIndic);//stop showing indicator
-                if (!ConvEnter)
-                {
-                    ConvEnter = true;
-                }
                 FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
-                if (sentences.Count == 0)   //if queue empty, end dialogue
-                {
-                    EndDialogue();
-                    return;
-                }
 
                 string name = names.Dequeue();
                 string sentence = sentences.Dequeue();
@@ -134,14 +123,41 @@ public class dialogueTrigger : MonoBehaviour
                 Sprite textbox = textboxs.Dequeue();    //go down list and put into a sprite/string
                 avatarSprite.enabled = true;
                 textboxSprite.enabled = true;   //show image
-                //avatarSprite.gameObject.SetActive(true);
-                //textboxSprite.gameObject.SetActive(true);
+                                                //avatarSprite.gameObject.SetActive(true);
+                                                //textboxSprite.gameObject.SetActive(true);
                 nameText.text = name;
                 dialogueText.text = sentence;
                 avatarSprite.GetComponent<Image>().sprite = avatar;
                 textboxSprite.GetComponent<Image>().sprite = textbox;   //input sprite/string onto placeholders in canvas
                 Debug.Log(name);
                 Debug.Log(sentence);
+                first = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.M))
+            {
+                FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
+                FindObjectOfType<playerMove>().jumpHeight = 0;
+                if (sentences.Count == 0)   //if queue empty, end dialogue
+                {
+                    
+                    EndDialogue();
+                    return;
+                }
+
+                string name2 = names.Dequeue();
+                string sentence2 = sentences.Dequeue();
+                Sprite avatar2 = avatars.Dequeue();
+                Sprite textbox2 = textboxs.Dequeue();    //go down list and put into a sprite/string
+                avatarSprite.enabled = true;
+                textboxSprite.enabled = true;   //show image
+                //avatarSprite.gameObject.SetActive(true);
+                //textboxSprite.gameObject.SetActive(true);
+                nameText.text = name2;
+                dialogueText.text = sentence2;
+                avatarSprite.GetComponent<Image>().sprite = avatar2;
+                textboxSprite.GetComponent<Image>().sprite = textbox2;   //input sprite/string onto placeholders in canvas
+                Debug.Log(name2);
+                Debug.Log(sentence2);
             }
         }
     }
