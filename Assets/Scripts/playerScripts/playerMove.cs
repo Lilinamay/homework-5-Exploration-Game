@@ -39,6 +39,8 @@ public class playerMove : MonoBehaviour
     public static bool faceRight = true;
 
     bool onFloor;
+    public bool onCloud;
+    public GameObject cloud;
     bool onLand;
     bool onIce;
 
@@ -61,8 +63,10 @@ public class playerMove : MonoBehaviour
         }
         exitOnfloor();
         timer += Time.deltaTime;
-        
-    }
+
+        if (onCloud && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            myBody.velocity = new Vector3(cloud.GetComponent<CloudMove>().cloudSpeed, myBody.velocity.y);
+        }
 
     void checkKey()
     {
@@ -148,8 +152,10 @@ public class playerMove : MonoBehaviour
     }
 
     void LRMovement(float dir)
-    {
-        myBody.velocity = new Vector3(dir * drag, myBody.velocity.y);
+    {   if(onCloud)
+            myBody.velocity = new Vector3(dir * drag + cloud.GetComponent<CloudMove>().cloudSpeed, myBody.velocity.y);
+        else
+            myBody.velocity = new Vector3(dir * drag, myBody.velocity.y);
         /*if (onIce == true)
         {
             PlayerAnimation(IceSprites);

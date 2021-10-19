@@ -102,7 +102,7 @@ public class dialogueTrigger : MonoBehaviour
         avatars.Clear();
         textboxs.Clear();
 
-        FindObjectOfType<playerMove>().speed = 5;
+        FindObjectOfType<playerMove>().speed = 7;
         FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
 
         dialogueComplete = true;

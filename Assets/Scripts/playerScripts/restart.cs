@@ -36,7 +36,7 @@ public class restart : MonoBehaviour
             {
                 myRenderer.enabled = true;
                 respawn = true;
-                gameObject.GetComponent<playerMove>().speed = 5;
+                gameObject.GetComponent<playerMove>().speed = 7;
                 gameObject.GetComponent<playerMove>().jumpHeight = gameObject.GetComponent<playerMove>().jumpheightInput;
                 gameObject.GetComponent<playerInteract>().dead = false;
                 timer = 0;

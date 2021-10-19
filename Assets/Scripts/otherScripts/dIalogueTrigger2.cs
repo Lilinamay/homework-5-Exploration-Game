@@ -96,8 +96,8 @@ public class dIalogueTrigger2 : MonoBehaviour
         avatars.Clear();
         textboxs.Clear();
 
-        FindObjectOfType<playerMove>().speed = 5;
-        FindObjectOfType<playerMove>().jumpHeight = 40;     //unfreeze player
+        FindObjectOfType<playerMove>().speed = 7;
+        FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
         haveTriggered = false;
         dialogue2Complete = true;
         first = false;

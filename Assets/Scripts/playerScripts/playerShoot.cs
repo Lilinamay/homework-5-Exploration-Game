@@ -16,6 +16,7 @@ public class playerShoot : MonoBehaviour
     public int hit;
     public int bulletCount;
     public GameObject Lily2;
+    public float sparkleShoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +93,7 @@ public class playerShoot : MonoBehaviour
                             }
                             else if (timer > holdTime)
                             {
+                                FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleShoot;
                                 GameObject newMega = Instantiate(mega, transform.position, transform.rotation); //default to player's position/rotation
                                 newMega.transform.SetParent(gameObject.transform);
                                 bulletCount--;

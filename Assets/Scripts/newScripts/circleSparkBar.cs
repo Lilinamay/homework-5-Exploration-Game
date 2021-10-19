@@ -24,13 +24,18 @@ public class circleSparkBar : MonoBehaviour
         {
             sparkles= sparkles +0.1f;
         }
+        if (sparkles > totalSparkles)
+        {
+            sparkles = totalSparkles;
+        }
         sparkleUI();
+        Debug.Log(sparkles);
     }
 
     void sparkleUI()
     {
         spaPercent = (sparkles / maxSparkles);   //get sparkle percentage
-        Debug.Log(spaPercent);
+        //Debug.Log(spaPercent);
         bar.fillAmount = spaPercent;        //fill in circle
     }
 
