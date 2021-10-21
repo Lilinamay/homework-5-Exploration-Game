@@ -30,7 +30,7 @@ public class playerMove : MonoBehaviour
     private bool haveDashed = false;
     private float dashTimer = 0;
     public float sparkleJump = 3;
-    bool canJump = true;
+    public bool canJump = true;
 
     //private bool duringSecondJump = false;
     [SerializeField]
@@ -39,11 +39,16 @@ public class playerMove : MonoBehaviour
 
     public static bool faceRight = true;
 
-    bool onFloor;
+    public bool onFloor;
     public bool onCloud;
     public GameObject cloud;
     bool onLand;
     bool onIce;
+    public float test = 3;
+    public float rayDis = 1;
+    public Transform rayCastOrigin;
+    float jumpTimer = 0;
+    public float theTimer;
 
 
     // Start is called before the first frame update
@@ -59,7 +64,10 @@ public class playerMove : MonoBehaviour
     void Update()
     {
         //Physics2D.Raycast()
-        
+        if ( !canJump)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
         checkKey();
         if (!duringDash)
         {
@@ -74,30 +82,30 @@ public class playerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Physics2D.Raycast(transform.position, Vector2.up, 3))
-        {
+        //if (Physics2D.Raycast(transform.position, Vector2.up))
+        //{
             //Debug.Log("ray");
-            Debug.DrawRay(transform.position, Vector2.up, Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
+            
+            RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin.position, Vector2.down, rayDis,7);
+            //Debug.Log("distance: " + hit.distance);
+            //Debug.DrawRay(transform.position, Vector2.up*10, Color.red, 1, false);
+
             //Debug.Log(Vector2.up);
-            if (hit.collider)
+
+        if (hit.collider)
+        {
+            Debug.Log(hit.collider.name);
+            if ((hit.collider.tag == "land" || hit.collider.tag == "ice") && jumpTimer<= 0)
             {
-                //Debug.Log(hit.collider.name);
+                Debug.Log("floor below, can't jump");
+                canJump = true;
+                jumpTimer = theTimer;
+                haveDashed = false;
+                haveSecondJump = false;
             }
-            if ((hit.collider.tag == "land"))
-            {
-                // Debug.Log((hit.collider.gameObject.transform.position - transform.position).magnitude);
-                if((hit.collider.gameObject.transform.position - transform.position).magnitude < 4f)
-                {
-                    Debug.Log("Rooof above, can't jump");
-                    canJump = false;
-                }
-                else
-                {
-                    canJump = true;
-                }
-            }
+            
         }
+        //}
     }
     void checkKey()
     {
@@ -114,14 +122,17 @@ public class playerMove : MonoBehaviour
             faceRight = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && onFloor/*&& canJump*/) //start jump
+        if (Input.GetKeyDown(KeyCode.W) && canJump) //start jump
         {
-            JumpMovement(jumpHeight, 1.3f);
+            
+            JumpMovement(jumpHeight, 1.6f);
+            canJump = false;
 
             Debug.Log("jump");
-        } else if (!onFloor)    //during jump
+        }
+        else if (!canJump)    //during jump
         {
-            if (Input.GetKeyDown(KeyCode.W) && FindObjectOfType<LilyActivate>().upgrade == true/*&& canJump*/)    //during jump, can dash
+            if (Input.GetKeyDown(KeyCode.W) && FindObjectOfType<LilyActivate>().upgrade == true)    //during jump, can dash
             {   
                 if (haveDashed == false)
                 {
@@ -132,6 +143,7 @@ public class playerMove : MonoBehaviour
                         haveDashed = true;
                         Debug.Log("jump2");
                         FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleJump;
+                        
                     }
                     else
                     {
@@ -259,13 +271,13 @@ public class playerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "land")
         {
+            Debug.Log("touched floor");
             onFloor = true;
             //onLand = true;
             drag = 0.9f;
             //dash = false;   //reset dash
             //dashTimer = 0;
-            haveDashed =false;
-            haveSecondJump = false;
+            
             //duringSecondJump = false;
         }
         if(collision.gameObject.tag == "ice")
@@ -273,6 +285,7 @@ public class playerMove : MonoBehaviour
             onFloor = true;
             //onIce = true;
             drag = 5f;
+
         }
     }
 }
