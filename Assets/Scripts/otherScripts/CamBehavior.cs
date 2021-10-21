@@ -28,6 +28,10 @@ public class CamBehavior : MonoBehaviour
         yMin = worldBounds.bounds.min.y;
         yMax = worldBounds.bounds.max.y;
 
+        // Temporal solution to worldBounds collider interfering with raycast collision
+        // is to disable it
+        worldBounds.gameObject.SetActive(false);
+
         mainCam = gameObject.GetComponent<Camera>();
 
         camSize = mainCam.orthographicSize;

@@ -29,7 +29,7 @@ public class circleSparkBar : MonoBehaviour
             sparkles = totalSparkles;
         }
         sparkleUI();
-        Debug.Log(sparkles);
+        //Debug.Log(sparkles);
     }
 
     void sparkleUI()

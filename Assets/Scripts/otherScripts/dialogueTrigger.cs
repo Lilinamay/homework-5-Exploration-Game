@@ -113,7 +113,7 @@ public class dialogueTrigger : MonoBehaviour
     {
         if (triggered)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Destroy(newIndic);//stop showing indicator
                 if (!ConvEnter)

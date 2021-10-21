@@ -9,7 +9,9 @@ public class checkManager : MonoBehaviour
     int SaveSparkle;
     int SaveBullet;
     bool check = false;
-    
+    //GameObject[] itemList;
+    //GameObject items;
+    public List<GameObject> itemList;
     GameObject collObject;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,8 @@ public class checkManager : MonoBehaviour
         SaveSparkle = 0;
         SaveX = transform.position.x;
         SaveY = transform.position.y;
+
+        itemList = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,8 @@ public class checkManager : MonoBehaviour
                 SaveBullet = FindObjectOfType<playerShoot>().bulletCount;
                 Debug.Log("progress saved");
                 check = false;
+                itemList.Clear();
+
             }
         }
 
@@ -42,7 +48,17 @@ public class checkManager : MonoBehaviour
              transform.position = new Vector3(SaveX+2, SaveY);
              FindObjectOfType<playerInteract>().starCount = SaveSparkle;
              FindObjectOfType<playerShoot>().bulletCount = SaveBullet;
+             foreach(GameObject item in itemList)
+            {
+                item.SetActive(true);
+                if(item.tag == "enemy")
+                {
+                    item.GetComponent<enemyBehavior>().added = false;
+                    item.GetComponent<enemyBehavior>().enemyHealth = 3;
+                }
+            }
              GetComponent<restart>().respawn =false;
+
 
          }
 
@@ -56,6 +72,9 @@ public class checkManager : MonoBehaviour
             Debug.Log("checkpoint");
             check = true;
             collObject = collision.gameObject;
+            
         }
     }
+
+
 }

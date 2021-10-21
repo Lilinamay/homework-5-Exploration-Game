@@ -30,6 +30,7 @@ public class playerMove : MonoBehaviour
     private bool haveDashed = false;
     private float dashTimer = 0;
     public float sparkleJump = 3;
+    bool canJump = true;
 
     //private bool duringSecondJump = false;
     [SerializeField]
@@ -48,6 +49,7 @@ public class playerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         jumpHeight = jumpheightInput;
@@ -56,6 +58,8 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Physics2D.Raycast()
+        
         checkKey();
         if (!duringDash)
         {
@@ -68,6 +72,33 @@ public class playerMove : MonoBehaviour
             myBody.velocity = new Vector3(cloud.GetComponent<CloudMove>().cloudSpeed, myBody.velocity.y);
         }
 
+    private void FixedUpdate()
+    {
+        if (Physics2D.Raycast(transform.position, Vector2.up, 3))
+        {
+            //Debug.Log("ray");
+            Debug.DrawRay(transform.position, Vector2.up, Color.red);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up);
+            //Debug.Log(Vector2.up);
+            if (hit.collider)
+            {
+                //Debug.Log(hit.collider.name);
+            }
+            if ((hit.collider.tag == "land"))
+            {
+                // Debug.Log((hit.collider.gameObject.transform.position - transform.position).magnitude);
+                if((hit.collider.gameObject.transform.position - transform.position).magnitude < 4f)
+                {
+                    Debug.Log("Rooof above, can't jump");
+                    canJump = false;
+                }
+                else
+                {
+                    canJump = true;
+                }
+            }
+        }
+    }
     void checkKey()
     {
         if (Input.GetKey(KeyCode.A))
@@ -83,14 +114,14 @@ public class playerMove : MonoBehaviour
             faceRight = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)&& onFloor) //start jump
+        if (Input.GetKeyDown(KeyCode.W) && onFloor/*&& canJump*/) //start jump
         {
-            JumpMovement(jumpHeight, 2f);
+            JumpMovement(jumpHeight, 1.3f);
 
             Debug.Log("jump");
         } else if (!onFloor)    //during jump
         {
-            if (Input.GetKeyDown(KeyCode.Space) && FindObjectOfType<LilyActivate>().upgrade == true)    //during jump, can dash
+            if (Input.GetKeyDown(KeyCode.W) && FindObjectOfType<LilyActivate>().upgrade == true/*&& canJump*/)    //during jump, can dash
             {   
                 if (haveDashed == false)
                 {
@@ -138,7 +169,7 @@ public class playerMove : MonoBehaviour
             if (duringDash)
             {                
                dashTimer += Time.deltaTime;
-               Debug.Log("timer" + dashTimer);
+               //Debug.Log("timer" + dashTimer);
                DashMovement(dashSpeed);
                if (dashTimer > 0.1f)
                 {

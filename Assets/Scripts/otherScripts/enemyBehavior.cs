@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyBehavior : MonoBehaviour
 {
     public int enemyHealth;
-    
+    public bool added;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,14 @@ public class enemyBehavior : MonoBehaviour
         if (enemyHealth <= 0)
         {
             Debug.Log("i am dead");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            if (added == false)
+            {
+                FindObjectOfType<checkManager>().itemList.Add(gameObject);
+                gameObject.SetActive(false);
+                //gameObject.GetComponent<checkManager>().itemList.Add(gameObject);
+                added = true;
+            }
         }
     }
 }

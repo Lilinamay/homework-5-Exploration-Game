@@ -38,22 +38,27 @@ public class playerInteract : MonoBehaviour
     {
         if (collision.gameObject.tag == "stars")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(flower, transform.position);
+            gameObject.GetComponent<checkManager>().itemList.Add(collision.gameObject);
             Debug.Log("star");
             starCount++;
         }
 
         if (collision.gameObject.tag == "bullet")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(flower, transform.position);
+            gameObject.GetComponent<checkManager>().itemList.Add(collision.gameObject);
             Debug.Log("bullet");
             gameObject.GetComponent<playerShoot>().bulletCount ++;
         }
 
         if (collision.gameObject.tag == "enemy")
-        { 
+        {
+
             dead = true;
             //AudioSource.PlayClipAtPoint(enemy, transform.position);
             Debug.Log("enemy");
@@ -88,6 +93,10 @@ public class playerInteract : MonoBehaviour
         if (starCount >= 2)
         {
             sparkleAchieved = true;
+        }
+        else
+        {
+            sparkleAchieved = false;
         }
     }
 

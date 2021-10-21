@@ -18,7 +18,12 @@ public class LilyDestroy : MonoBehaviour
         {
             Debug.Log("Destroy lily 1 and respawn lily 2");
             Lily2.SetActive(true);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            Lily2.SetActive(false);
         }
     }
 }

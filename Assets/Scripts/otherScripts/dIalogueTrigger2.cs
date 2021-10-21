@@ -133,7 +133,7 @@ public class dIalogueTrigger2 : MonoBehaviour
                 Debug.Log(sentence);
                 first = true;
             }
-            else if (Input.GetKeyDown(KeyCode.M))
+            else if (Input.GetKeyDown(KeyCode.Space))
             {
                 FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
