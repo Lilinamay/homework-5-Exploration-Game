@@ -14,7 +14,7 @@ public class LilyDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (FindObjectOfType<playerInteract >().sparkleAchieved == true)
+        if (FindObjectOfType<playerInteract>().sparkleAchieved == true)
         {
             Debug.Log("Destroy lily 1 and respawn lily 2");
             Lily2.SetActive(true);

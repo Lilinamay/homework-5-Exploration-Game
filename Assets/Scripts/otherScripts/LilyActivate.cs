@@ -22,7 +22,7 @@ public class LilyActivate : MonoBehaviour
         }*/
         if (FindObjectOfType<playerInteract>().sparkleAchieved == false)
         {
-            Debug.Log("Destroy lily 1 and respawn lily 2");
+            Debug.Log("Spawn Lily1");
             Lily1.SetActive(true);
             gameObject.SetActive(false);
         }
