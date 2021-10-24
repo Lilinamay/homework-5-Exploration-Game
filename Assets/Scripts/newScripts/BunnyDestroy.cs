@@ -15,7 +15,7 @@ public class BunnyDestroy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Flora.GetComponent<dialogueTrigger>().dialogueComplete == true)
+        if (Flora.GetComponent<dialogueTrigger>().dialogueComplete == true && gameObject.GetComponent<dialogueTrigger>().dialogueComplete == true)
         {
             Debug.Log("Destroy bunny 1 and respawn bunny 2");
             Bunny2.SetActive(true);

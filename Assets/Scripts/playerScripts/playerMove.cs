@@ -94,7 +94,7 @@ public class playerMove : MonoBehaviour
 
         if (hit.collider)
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             if ((hit.collider.tag == "land" || hit.collider.tag == "ice") && jumpTimer<= 0)
             {
                 Debug.Log("floor below, can't jump");
