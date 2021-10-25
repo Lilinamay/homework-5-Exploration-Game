@@ -34,7 +34,7 @@ public class playerInteract : MonoBehaviour
         sparkleActivate();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "stars")
         {
@@ -53,8 +53,12 @@ public class playerInteract : MonoBehaviour
             //AudioSource.PlayClipAtPoint(flower, transform.position);
             gameObject.GetComponent<checkManager>().itemList.Add(collision.gameObject);
             Debug.Log("bullet");
-            gameObject.GetComponent<playerShoot>().bulletCount ++;
+            gameObject.GetComponent<playerShoot>().bulletCount++;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
 
         if (collision.gameObject.tag == "enemy")
         {

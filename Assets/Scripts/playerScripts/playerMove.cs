@@ -49,6 +49,7 @@ public class playerMove : MonoBehaviour
     public Transform rayCastOrigin;
     float jumpTimer = 0;
     public float theTimer;
+    public bool canFlip = true;
 
 
     // Start is called before the first frame update
@@ -112,14 +113,20 @@ public class playerMove : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             LRMovement(-speed);
-            myRenderer.flipX = true;
-            faceRight = false;
+            if (canFlip)
+            {
+                myRenderer.flipX = true;
+                faceRight = false;
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             LRMovement(speed);
-            myRenderer.flipX = false;
-            faceRight = true;
+            if (canFlip)
+            {
+                myRenderer.flipX = false;
+                faceRight = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && canJump) //start jump

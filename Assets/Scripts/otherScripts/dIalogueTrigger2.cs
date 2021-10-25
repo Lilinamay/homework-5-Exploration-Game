@@ -98,6 +98,7 @@ public class dIalogueTrigger2 : MonoBehaviour
 
         FindObjectOfType<playerMove>().speed = 7;
         FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
+        FindObjectOfType<playerMove>().canFlip = true;
         haveTriggered = false;
         dialogue2Complete = true;
         first = false;
@@ -116,6 +117,7 @@ public class dIalogueTrigger2 : MonoBehaviour
             {
                 FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
+                FindObjectOfType<playerMove>().canFlip = false;
 
                 string name = names.Dequeue();
                 string sentence = sentences.Dequeue();

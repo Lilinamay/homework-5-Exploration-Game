@@ -4,16 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Dialogue3 : MonoBehaviour
+public class EndDialogue : MonoBehaviour
 {
-
     [SerializeField] Dialogue dialogue;
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] Image avatarSprite;
     [SerializeField] Image textboxSprite;
 
-    private bool onFloor = false;
+    [SerializeField] GameObject checkpoint;
+
+    bool enter= false;
     private bool haveTriggered = false;
     private bool triggered = false;
     private bool first = false;
@@ -41,7 +42,7 @@ public class Dialogue3 : MonoBehaviour
 
     private void triggerConversation()
     {
-        if (onFloor && haveTriggered == false&& !dialogue2Complete)
+        if (haveTriggered == false && !dialogue2Complete && enter)
         {
             Debug.Log("trigger conversation");
             triggered = true;
@@ -74,22 +75,14 @@ public class Dialogue3 : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.name == "player")
-        {
-            triggered = false;
-            EndDialogue();
-        }
-    }*/
 
-    void EndDialogue()
+
+    void InEndDialogue()
     {
         Debug.Log("End conversation ");// + names.Peek());
         avatarSprite.enabled = false;
         textboxSprite.enabled = false;
-        //avatarSprite.gameObject.SetActive(false);
-        //textboxSprite.gameObject.SetActive(false);
+
         nameText.text = "";
         dialogueText.text = "";
         avatarSprite.GetComponent<Image>().sprite = null;
@@ -99,9 +92,9 @@ public class Dialogue3 : MonoBehaviour
         avatars.Clear();
         textboxs.Clear();
 
-        FindObjectOfType<playerMove>().speed = 7;
+        /*FindObjectOfType<playerMove>().speed = 7;
         FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
-        FindObjectOfType<playerMove>().canFlip = true;
+        FindObjectOfType<playerMove>().canFlip = true;*/
         haveTriggered = false;
         dialogue2Complete = true;
         first = false;
@@ -119,9 +112,9 @@ public class Dialogue3 : MonoBehaviour
         {
             if (first == false)
             {
-                FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
+                /*FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
-                FindObjectOfType<playerMove>().canFlip = false;
+                FindObjectOfType<playerMove>().canFlip = false;*/
 
                 string name = names.Dequeue();
                 string sentence = sentences.Dequeue();
@@ -141,12 +134,12 @@ public class Dialogue3 : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Space))
             {
-                FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
-                FindObjectOfType<playerMove>().jumpHeight = 0;
+                /*FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
+                FindObjectOfType<playerMove>().jumpHeight = 0;*/
                 if (sentences.Count == 0)   //if queue empty, end dialogue
                 {
 
-                    EndDialogue();
+                    InEndDialogue();
                     return;
                 }
 
@@ -168,12 +161,14 @@ public class Dialogue3 : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "player")
+        if( collision.gameObject.name == "player")
         {
-            onFloor = true;
+            if (checkpoint.GetComponent<dialogueTrigger>().dialogueComplete)
+            {
+                enter = true;
+            }
         }
     }
-
 }

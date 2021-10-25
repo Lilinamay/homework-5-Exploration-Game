@@ -104,6 +104,7 @@ public class dialogueTrigger : MonoBehaviour
 
         FindObjectOfType<playerMove>().speed = 7;
         FindObjectOfType<playerMove>().jumpHeight = FindObjectOfType<playerMove>().jumpheightInput;     //unfreeze player
+        FindObjectOfType<playerMove>().canFlip = true;
 
         dialogueComplete = true;
         ConvEnter = false;
@@ -122,6 +123,7 @@ public class dialogueTrigger : MonoBehaviour
                 }
                 FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
+                FindObjectOfType<playerMove>().canFlip = false;
                 if (sentences.Count == 0)   //if queue empty, end dialogue
                 {
                     EndDialogue();

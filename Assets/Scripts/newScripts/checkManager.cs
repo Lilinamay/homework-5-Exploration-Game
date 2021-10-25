@@ -55,6 +55,10 @@ public class checkManager : MonoBehaviour
                 {
                     item.GetComponent<enemyBehavior>().added = false;
                     item.GetComponent<enemyBehavior>().enemyHealth = 3;
+                    if(item.name == "movingEnemy")
+                    {
+                        item.GetComponent<enemyBehavior>().enemyHealth = 1;
+                    }
                 }
             }
              GetComponent<restart>().respawn =false;
