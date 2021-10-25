@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour
 {
+
+    public AudioSource audioSource;
     Rigidbody2D myBody;
     SpriteRenderer myRenderer;
 
@@ -55,7 +57,7 @@ public class playerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myRenderer = gameObject.GetComponent<SpriteRenderer>();
         jumpHeight = jumpheightInput;
@@ -112,6 +114,7 @@ public class playerMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
+            
             LRMovement(-speed);
             if (canFlip)
             {
@@ -131,7 +134,7 @@ public class playerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && canJump) //start jump
         {
-            
+            audioManager.Instance.PlaySound(audioManager.Instance.jumpSound, audioManager.Instance.jumpVolume);
             JumpMovement(jumpHeight, 1.6f);
             canJump = false;
 
