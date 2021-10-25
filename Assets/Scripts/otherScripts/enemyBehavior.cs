@@ -6,11 +6,12 @@ public class enemyBehavior : MonoBehaviour
 {
     public int enemyHealth;
     public bool added;
+
     
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -34,4 +35,6 @@ public class enemyBehavior : MonoBehaviour
             }
         }
     }
+
+   
 }

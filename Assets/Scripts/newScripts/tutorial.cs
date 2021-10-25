@@ -33,7 +33,7 @@ public class tutorial : MonoBehaviour
             fadeCheck();
         }
         fadeOutCheck();
-        Debug.Log(timer);
+        //Debug.Log(timer);
     }
 
     void fadeInText(TMP_Text text, float fadeSpeed)

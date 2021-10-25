@@ -10,10 +10,19 @@ public class enemyMove : MonoBehaviour
     private float enemyCurrentX;
     private float enemyX;
     Rigidbody2D enemyBody;
+    SpriteRenderer myRenderer;
+
+    [SerializeField] private Sprite[] IdleSprites;
+
+    [SerializeField] private float animationSpeed = 0.3f;
+    private float timer;
+    private int currentSpriteIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         enemyBody = gameObject.GetComponent<Rigidbody2D>();
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         enemyX = gameObject.transform.position.x;
     }
 
@@ -33,7 +42,29 @@ public class enemyMove : MonoBehaviour
             //Debug.Log("change dir");
         }
 
+        MovingAnimation(IdleSprites);
+        if (enemySpeed < 0)
+        {
+            myRenderer.flipX = true;
+        }
+        if(enemySpeed >= 0)
+        {
+            myRenderer.flipX = false;
+        }
+
         enemyBody.velocity = new Vector3(enemySpeed, enemyBody.velocity.y);
 
+    }
+
+    void MovingAnimation(Sprite[] currentSprite)                                    //animations
+    {
+        timer += Time.deltaTime;
+        if (timer >= animationSpeed)
+        {
+            timer = 0;
+            currentSpriteIndex++;
+            currentSpriteIndex %= currentSprite.Length;
+        }
+        myRenderer.sprite = currentSprite[currentSpriteIndex];
     }
 }

@@ -60,7 +60,7 @@ public class audioManager : MonoBehaviour
         AudioSource newSoundSource = newSound.GetComponent<AudioSource>();
         newSoundSource.clip = clipToPlay;
         newSoundSource.volume = volume;
-        Debug.Log("volume" + volume);
+        //Debug.Log("volume" + volume);
         newSoundSource.Play();
         Destroy(newSound, clipToPlay.length);
     }

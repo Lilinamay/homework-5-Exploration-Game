@@ -9,10 +9,10 @@ public class playerMove : MonoBehaviour
     Rigidbody2D myBody;
     SpriteRenderer myRenderer;
 
-    //[SerializeField] private Sprite[] LRSprites;
-    //[SerializeField] private Sprite[] JumpSprites;
-    //[SerializeField] private Sprite[] IdleSprites;
-    //[SerializeField] private Sprite[] IceSprites;
+    [SerializeField] private Sprite[] LRSprites;
+    [SerializeField] private Sprite[] JumpSprites;
+    [SerializeField] private Sprite[] IdleSprites;
+    [SerializeField] private Sprite[] IceSprites;
 
     [SerializeField] private float animationSpeed = 0.3f;
     private float timer;
@@ -85,16 +85,8 @@ public class playerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (Physics2D.Raycast(transform.position, Vector2.up))
-        //{
-            //Debug.Log("ray");
-            
+
             RaycastHit2D hit = Physics2D.Raycast(rayCastOrigin.position, Vector2.down, rayDis,7);
-            //Debug.Log("distance: " + hit.distance);
-            //Debug.DrawRay(transform.position, Vector2.up*10, Color.red, 1, false);
-
-            //Debug.Log(Vector2.up);
-
         if (hit.collider)
         {
             //Debug.Log(hit.collider.name);
@@ -114,7 +106,14 @@ public class playerMove : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            
+            if (onIce == true)
+            {
+                PlayerAnimation(IceSprites);
+            }
+            else
+            {
+                PlayerAnimation(LRSprites);
+            }
             LRMovement(-speed);
             if (canFlip)
             {
@@ -124,11 +123,30 @@ public class playerMove : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            if (onIce == true)
+            {
+                PlayerAnimation(IceSprites);
+            }
+            else
+            {
+                PlayerAnimation(LRSprites);
+            }
             LRMovement(speed);
             if (canFlip)
             {
                 myRenderer.flipX = false;
                 faceRight = true;
+            }
+        }
+        else
+        {
+            if (onIce == true)
+            {
+                PlayerAnimation(IceSprites);
+            }
+            else
+            {
+                PlayerAnimation(IdleSprites);
             }
         }
 
@@ -137,7 +155,7 @@ public class playerMove : MonoBehaviour
             audioManager.Instance.PlaySound(audioManager.Instance.jumpSound, audioManager.Instance.jumpVolume);
             JumpMovement(jumpHeight, 1.6f);
             canJump = false;
-
+            PlayerAnimation(JumpSprites);
             Debug.Log("jump");
         }
         else if (!canJump)    //during jump
@@ -153,7 +171,7 @@ public class playerMove : MonoBehaviour
                         haveDashed = true;
                         Debug.Log("jump2");
                         FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleJump;
-                        
+                        PlayerAnimation(JumpSprites);
                     }
                     else
                     {
@@ -168,6 +186,7 @@ public class playerMove : MonoBehaviour
                     {
                         if (FindObjectOfType<circleSparkBar>().sparkles >= sparkleJump)
                         {
+                            PlayerAnimation(JumpSprites);
                             Debug.Log("second jump");
                             SecondJumpMovement();
                             //duringSecondJump = true;
@@ -185,6 +204,7 @@ public class playerMove : MonoBehaviour
             }
             else
             {
+                PlayerAnimation(JumpSprites);
                 myBody.velocity += Vector2.up * Physics2D.gravity.y * (jumpHeight - 1f) * Time.deltaTime;       //normal jump
             }
 
@@ -193,7 +213,8 @@ public class playerMove : MonoBehaviour
                dashTimer += Time.deltaTime;
                //Debug.Log("timer" + dashTimer);
                DashMovement(dashSpeed);
-               if (dashTimer > 0.1f)
+                PlayerAnimation(JumpSprites);
+                if (dashTimer > 0.1f)
                 {
                     duringDash = false;
                     //dash = false;
@@ -219,7 +240,7 @@ public class playerMove : MonoBehaviour
         }*/
     }
 
-    void PlayerAnimation(Sprite[] currentSprite)
+    void PlayerAnimation(Sprite[] currentSprite)                                    //animations
     {
         timer += Time.deltaTime;
         if (timer >= animationSpeed)
@@ -230,6 +251,7 @@ public class playerMove : MonoBehaviour
         }
         myRenderer.sprite = currentSprite[currentSpriteIndex];
     }
+
     void JumpMovement(float jumpHeightValue, float dragValue)
     {
         myBody.velocity = new Vector3(myBody.velocity.x, jumpHeightValue);
@@ -283,7 +305,7 @@ public class playerMove : MonoBehaviour
         {
             Debug.Log("touched floor");
             onFloor = true;
-            //onLand = true;
+            onLand = true;
             drag = 0.9f;
             //dash = false;   //reset dash
             //dashTimer = 0;
@@ -293,9 +315,21 @@ public class playerMove : MonoBehaviour
         if(collision.gameObject.tag == "ice")
         {
             onFloor = true;
-            //onIce = true;
+            onIce = true;
             drag = 5f;
+        }
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "land")
+        {
+            onLand = false;
+
+        }
+        if (collision.gameObject.tag == "ice")
+        {
+            onIce = false;
         }
     }
 }

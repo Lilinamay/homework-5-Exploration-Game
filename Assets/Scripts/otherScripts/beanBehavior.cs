@@ -6,6 +6,7 @@ public class beanBehavior : MonoBehaviour
 {
     public playerShoot pShoot;
     public enemyBehavior enemyHealth;   //change enemyhealth
+    
 
     void Start()
     {
@@ -29,9 +30,9 @@ public class beanBehavior : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);    //destroy bullet
                 collision.gameObject.GetComponent<enemyBehavior>().enemyHealth--;
                 Debug.Log(collision.gameObject.GetComponent<enemyBehavior>().enemyHealth);
+                Destroy(gameObject);    //destroy bullet  
             }
         }
     }

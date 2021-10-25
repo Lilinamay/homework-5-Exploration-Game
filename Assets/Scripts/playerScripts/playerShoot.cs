@@ -8,25 +8,39 @@ public class playerShoot : MonoBehaviour
     private float countTimer = 0;
     public float holdTime;
     public bool hasShoot = false;
+
     public bool resetA = false;
     public bool resetB = false;
     public GameObject ball;
     public GameObject mega;
+    public GameObject sparkUp;
+    GameObject newSpark;
     public float shootSpeed;
     public int hit;
     public int bulletCount;
     public GameObject Lily2;
     public float sparkleShoot;
+
+    public bool hasSpark = false;
+    SpriteRenderer myRenderer;
+
+    [SerializeField] private Sprite[] ChargingSprites;
+    [SerializeField] private Sprite ChargedSprites;
+    [SerializeField] private float animationSpeed = 0.3f;
+    private float Animetimer;
+    private int currentSpriteIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         bulletCount = 20;
         GameObject Lily2 = GameObject.Find("LilyReturn");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        sparkAnimation();
         inputReset();
         //upgrade();
         if (gameObject.GetComponent<playerInteract>().dead == false)        //player alive and have positions
@@ -118,8 +132,7 @@ public class playerShoot : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.K) && bulletCount < 1)
             {
                 Debug.Log("out of bullets");
-            }
-            
+            }        
         }
         
     }
@@ -135,6 +148,45 @@ public class playerShoot : MonoBehaviour
             holdTime = 99999;
         }
     }*/
+    void sparkAnimation()
+    {
+        if (timer > 0.2f && timer <1f)
+        {
+            if (!hasSpark)
+            {
+                newSpark = Instantiate(sparkUp, transform.position, transform.rotation); //default to player's position/rotation
+                myRenderer = newSpark.GetComponent<SpriteRenderer>();
+                newSpark.transform.SetParent(gameObject.transform);
+                hasSpark = true;
+            }
+            GetAnimation(ChargingSprites);
+            if (playerMove.faceRight)
+            {
+                newSpark.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else
+            {
+                newSpark.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        if(timer > 1f)
+            {
+                myRenderer.sprite = ChargedSprites;
+            }
+
+        }
+    }
+
+    void GetAnimation(Sprite[] currentSprite)                                    //animations
+    {
+        Animetimer += Time.deltaTime;
+        if (Animetimer >= animationSpeed)
+        {
+            Animetimer = 0;
+            currentSpriteIndex++;
+            currentSpriteIndex %= currentSprite.Length;
+        }
+        myRenderer.sprite = currentSprite[currentSpriteIndex];
+    }
 
     void inputReset()
     {
@@ -158,6 +210,10 @@ public class playerShoot : MonoBehaviour
             resetA = false;
             resetB = false;
             countTimer = 0;
+            if (newSpark != null)
+            {
+                Destroy(newSpark);
+            }
             return;
         }else
         {
