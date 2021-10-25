@@ -90,7 +90,7 @@ public class playerInteract : MonoBehaviour
 
     void sparkleActivate()
     {
-        if (starCount >= 2)
+        if (starCount >= 10)
         {
             sparkleAchieved = true;
         }
