@@ -14,7 +14,7 @@ public class playerShoot : MonoBehaviour
     public GameObject ball;
     public GameObject mega;
     public GameObject sparkUp;
-    GameObject newSpark;
+    //public GameObject newSpark;
     public float shootSpeed;
     public int hit;
     public int bulletCount;
@@ -34,7 +34,9 @@ public class playerShoot : MonoBehaviour
     {
         bulletCount = 20;
         GameObject Lily2 = GameObject.Find("LilyReturn");
-        
+        myRenderer = sparkUp.GetComponent<SpriteRenderer>();
+        myRenderer.enabled=false;
+
     }
 
     // Update is called once per frame
@@ -121,7 +123,7 @@ public class playerShoot : MonoBehaviour
                                     newMega.GetComponent<SpriteRenderer>().flipX = true;    //flip ball 
                                     dir = -1f;      //opposite direction
                                 }
-                                newMega.transform.localPosition = new Vector3(dir * 3.2f, -0.1f); ///local position relative to player
+                                newMega.transform.localPosition = new Vector3(dir * 2.4f, -0.1f); ///local position relative to player
                                 hasShoot = true;
                                 resetB = true;
                             }
@@ -150,30 +152,41 @@ public class playerShoot : MonoBehaviour
     }*/
     void sparkAnimation()
     {
-        if (timer > 0.2f && timer <1f)
+        if (timer > 0.4f && timer < 1f)
         {
-            if (!hasSpark)
+            myRenderer.enabled = true;
+            /*if (!hasSpark)
             {
                 newSpark = Instantiate(sparkUp, transform.position, transform.rotation); //default to player's position/rotation
                 myRenderer = newSpark.GetComponent<SpriteRenderer>();
                 newSpark.transform.SetParent(gameObject.transform);
                 hasSpark = true;
-            }
+            }*/
             GetAnimation(ChargingSprites);
             if (playerMove.faceRight)
             {
-                newSpark.GetComponent<SpriteRenderer>().flipX = false;
+                sparkUp.GetComponent<SpriteRenderer>().flipX = false;
             }
             else
             {
-                newSpark.GetComponent<SpriteRenderer>().flipX = true;
+                sparkUp.GetComponent<SpriteRenderer>().flipX = true;
             }
+        }
+
         if(timer > 1f)
             {
+                myRenderer.enabled = true;
                 myRenderer.sprite = ChargedSprites;
+                if (playerMove.faceRight)
+                {
+                    sparkUp.GetComponent<SpriteRenderer>().flipX = false;
+                }
+                else
+                {
+                    sparkUp.GetComponent<SpriteRenderer>().flipX = true;
+                }
             }
 
-        }
     }
 
     void GetAnimation(Sprite[] currentSprite)                                    //animations
@@ -210,10 +223,7 @@ public class playerShoot : MonoBehaviour
             resetA = false;
             resetB = false;
             countTimer = 0;
-            if (newSpark != null)
-            {
-                Destroy(newSpark);
-            }
+            myRenderer.enabled = false;
             return;
         }else
         {
