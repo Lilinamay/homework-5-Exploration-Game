@@ -24,6 +24,12 @@ public class dialogueTrigger : MonoBehaviour
 
     [SerializeField] GameObject indicator;
     GameObject newIndic;
+    SpriteRenderer myRenderer;
+
+    [SerializeField] private Sprite[] IdleSprites;
+    [SerializeField] private float animationSpeed = 0.3f;
+    private float timer;
+    private int currentSpriteIndex = 0;
 
     //GameObject player;
 
@@ -39,8 +45,9 @@ public class dialogueTrigger : MonoBehaviour
         textboxSprite.enabled = false; //disable without dialogue
 
         newIndic = Instantiate(indicator, transform.position, transform.rotation); //default to player's position/rotation
+        myRenderer = newIndic.GetComponent<SpriteRenderer>();
         newIndic.transform.SetParent(gameObject.transform);
-        newIndic.transform.localPosition = new Vector3(0.5f, 0.5f); ///local position relative to player
+        newIndic.transform.localPosition = new Vector3(1.2f, 0.5f); ///local position relative to player
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -112,6 +119,10 @@ public class dialogueTrigger : MonoBehaviour
 
     void Update()
     {
+        if(newIndic != null)
+        {
+            IndicAnimation(IdleSprites);
+        }
         if (triggered)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -148,7 +159,17 @@ public class dialogueTrigger : MonoBehaviour
         }
     }
 
-
+    void IndicAnimation(Sprite[] currentSprite)                                    //animations
+    {
+        timer += Time.deltaTime;
+        if (timer >= animationSpeed)
+        {
+            timer = 0;
+            currentSpriteIndex++;
+            currentSpriteIndex %= currentSprite.Length;
+        }
+        myRenderer.sprite = currentSprite[currentSpriteIndex];
+    }
 
 
 }

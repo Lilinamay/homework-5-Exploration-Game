@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 28268183}
   - component: {fileID: 28268182}
   - component: {fileID: 28268181}
+  - component: {fileID: 28268185}
   m_Layer: 0
   m_Name: LilyReturn
   m_TagString: Untagged
@@ -585,7 +586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28268179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5701, y: -3.92, z: 520.28174}
+  m_LocalPosition: {x: -8.2, y: -3.37, z: 520.28174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312216766}
@@ -618,18 +619,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.011731267, y: -0.04692602}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.84, y: 2.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6230006, y: 1}
+  m_Size: {x: 3.0542433, y: 2.970891}
   m_EdgeRadius: 0
 --- !u!114 &28268183
 MonoBehaviour:
@@ -651,11 +652,11 @@ MonoBehaviour:
     - shiba
     - Lily
     avatars:
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -665,16 +666,23 @@ MonoBehaviour:
     sentences:
     - wow you got all 12 sparkles
     - let me bless you with sparkle power
-    - 'now you can defeat strong monsters, jump higher '
-    - any chance you know where is Flora? Old Bunny asked me to send her a greeting.
-    - She is on the clouds to the west
+    - 'now you can hold K to super charge your sparkle shot and press W in the air
+      again to dash and jump again. '
+    - Thank you! Any chance you know where is Flora? Old Bunny asked me to send her
+      a greeting.
+    - 'She is on the clouds to the west. '
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
   avatarSprite: {fileID: 1656577817}
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!212 &28268184
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -715,8 +723,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.3726415, b: 0.93444145, a: 1}
+  m_Sprite: {fileID: 6851665895265531493, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -726,6 +734,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &28268185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28268179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62847710af71749f988dedc1dea9cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleSprites:
+  - {fileID: 6851665895265531493, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -4827319518103212281, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!1 &34949728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,7 +2534,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5108353222546170368, guid: 8f1b1862915294ff8b4d23f97cd6e7dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3119,7 +3143,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -3130,7 +3154,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &402907545
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6054,7 +6083,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -6065,7 +6094,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &583214856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6172,6 +6206,8 @@ GameObject:
   - component: {fileID: 585144770}
   - component: {fileID: 585144769}
   - component: {fileID: 585144772}
+  - component: {fileID: 585144774}
+  - component: {fileID: 585144773}
   m_Layer: 0
   m_Name: Bunny
   m_TagString: Untagged
@@ -6187,7 +6223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585144767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1900015, y: -18.71, z: 520.28174}
+  m_LocalPosition: {x: 1.05, y: -18.44, z: 520.28174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312216766}
@@ -6208,19 +6244,25 @@ MonoBehaviour:
   dialogue:
     names:
     - Old bunny
+    - Shiba
     - Old bunny
     - Old bunny
     - Old bunny
     - Old bunny
     - Old bunny
+    - Shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
+    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -6229,20 +6271,27 @@ MonoBehaviour:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
     - What brings you here, child?
-    - Lily told me if I can collect 12 sparkles, she will grant me the power to kill
-      big enemy.
+    - Lily told me if I can collect some sparkles, she will grant me the power to
+      true freedom.
     - 'A big adventurer, I see. You know, when I was younger, I did crazy shit like
       you. '
-    - 'I got warn you, it is dangerous down there. '
-    - 'You can get to Lily through my back door. The key is right behind me. '
-    - And if you see Flora on your way, tell her I said hi.
+    - 'I got that vibe from you too. You can get to Lily through my back door. The
+      key is right behind me. '
+    - 'May she bless you to freedom. '
+    - 'And if you see Flora the snow bunny on your way, say hi for me please. '
+    - Of course I will. Thank you for the key.
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
   avatarSprite: {fileID: 1656577817}
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &585144770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6260,7 +6309,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.68, y: 1.92}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6309,8 +6358,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.34376112, g: 0.5617215, b: 0.9716981, a: 1}
+  m_Sprite: {fileID: 148488232095458755, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6334,6 +6383,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bunny2: {fileID: 640056801}
   Flora: {fileID: 734408179}
+--- !u!114 &585144773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585144767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62847710af71749f988dedc1dea9cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleSprites:
+  - {fileID: 148488232095458755, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 6851169748936618109, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
+--- !u!114 &585144774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585144767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.990566, g: 0.9810397, b: 0.70554465, a: 1}
+  m_Intensity: 0.12
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.78
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &586061149
 GameObject:
   m_ObjectHideFlags: 0
@@ -6869,8 +6975,8 @@ MonoBehaviour:
     - Shiba
     - Enemy
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 1836798033852717103, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -7213,7 +7319,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -7224,7 +7330,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &616290279
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7443,7 +7554,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -7454,7 +7565,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &639383254
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7561,6 +7677,8 @@ GameObject:
   - component: {fileID: 640056805}
   - component: {fileID: 640056804}
   - component: {fileID: 640056803}
+  - component: {fileID: 640056808}
+  - component: {fileID: 640056807}
   m_Layer: 0
   m_Name: BunnyReturn
   m_TagString: Untagged
@@ -7576,7 +7694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640056801}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.61, y: -11.03, z: 520.28174}
+  m_LocalPosition: {x: -36.37, y: -10.67, z: 520.28174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312216766}
@@ -7616,14 +7734,17 @@ MonoBehaviour:
     - Old bunny
     - Old bunny
     - Old bunny
+    - Old bunny
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 5511777603169661058, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
+    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -7633,17 +7754,27 @@ MonoBehaviour:
     sentences:
     - 'I met Flora on the clouds. '
     - How's she doing?
-    - 'She is doing great. It is glorious up there.  You should check it out too. '
-    - 'Nahh. I hate sunlight. Plus I am too old to jump that high anymore. '
-    - So, you ready to explore the real underworld?
-    - 'Let me show you how to light up. '
+    - She is doing great...I mean it is glorious up there. Maybe you should check
+      it out too.  You know, meet Flora in person and have a conversation conversation
+    - 'Nahh. I hate sunlight. I don''t believe that whole moon crap. Plus I am too
+      old to jump that high anymore. '
+    - The old legend says all the way to the west of the underworld has the entrance
+      to true freedom.
+    - 'You ready to explore the real underworld? Let me show you how to spark up
+      more. '
+    - Press L in the darkness to light yourself up.
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
   avatarSprite: {fileID: 1656577817}
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &640056805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7657,18 +7788,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.029416084, y: 0.058835983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.68, y: 1.92}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.8631344, y: 2.255165}
   m_EdgeRadius: 0
 --- !u!212 &640056806
 SpriteRenderer:
@@ -7710,9 +7841,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.34376112, g: 0.5617215, b: 0.9716981, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 148488232095458755, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -7721,6 +7852,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &640056807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640056801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.990566, g: 0.9810397, b: 0.70554465, a: 1}
+  m_Intensity: 0.87
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_UseNormalMap: 0
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_ShadowIntensity: 0
+  m_ShadowVolumeIntensity: 0
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.78
+  m_PointLightDistance: 3
+  m_PointLightQuality: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &640056808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640056801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62847710af71749f988dedc1dea9cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleSprites:
+  - {fileID: 148488232095458755, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 6851169748936618109, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!1 &659977268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7771,7 +7959,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -7782,7 +7970,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &659977271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8035,6 +8228,7 @@ GameObject:
   - component: {fileID: 707865533}
   - component: {fileID: 707865535}
   - component: {fileID: 707865536}
+  - component: {fileID: 707865537}
   m_Layer: 0
   m_Name: Lily
   m_TagString: Untagged
@@ -8050,7 +8244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707865531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5701, y: -3.92, z: 520.28174}
+  m_LocalPosition: {x: -6.19, y: -3.4, z: 520.28174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312216766}
@@ -8070,32 +8264,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     names:
+    - Shiba
     - Lily
-    - Sam
     - Lily
-    - Lily
+    - Shiba
     avatars:
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: -3675321674894094071, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
-    - Hi
-    - 'collect all 10 sparkles '
-    - come back and I can upgrade your weapon
-    - then you can defeat the big enemy
+    - Hi, I just got out of prison. How do I get around.
+    - 'Congradulation! You are free! I am Lily the mentor. '
+    - Look around, collect all 10 sparkles, and  come back. I will give you the skill
+      you need to explore the free world.
+    - Weee!
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
   avatarSprite: {fileID: 1656577817}
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!212 &707865534
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8136,9 +8336,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.3726415, b: 0.93444145, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 6851665895265531493, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -8164,7 +8364,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.84, y: 2.4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -8186,6 +8386,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lily2: {fileID: 28268179}
+--- !u!114 &707865537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707865531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62847710af71749f988dedc1dea9cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleSprites:
+  - {fileID: 6851665895265531493, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -4827319518103212281, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!1 &715423409
 GameObject:
   m_ObjectHideFlags: 0
@@ -8475,6 +8691,7 @@ GameObject:
   - component: {fileID: 734408182}
   - component: {fileID: 734408181}
   - component: {fileID: 734408183}
+  - component: {fileID: 734408184}
   m_Layer: 0
   m_Name: snowBunny
   m_TagString: Untagged
@@ -8490,7 +8707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734408179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -158.94742, y: 26.9, z: 520.28174}
+  m_LocalPosition: {x: -158.79, y: 27.42, z: 520.28174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1312216766}
@@ -8511,20 +8728,20 @@ MonoBehaviour:
   dialogue:
     names:
     - Shiba
-    - Flora
     - Shiba
     - Flora
     - Shiba
     - Flora
     - Flora
+    - Shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 3216300859782790227, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 3216300859782790227, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 3216300859782790227, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -8535,19 +8752,25 @@ MonoBehaviour:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
     - 'You must be Flora. '
-    - You are?
-    - I am Xixi. Old Bunny told me to say hi for him if I run into you.
+    - Old Bunny told me to say hi for him if I run into you.
     - Is he still digging down there?
-    - not anymore, he thinks he is too old for that.
-    - 'Well, you will be surpised about the underworld. '
-    - But good job so far, that's the end of the game
+    - Not anymore, he thinks he is too old for that.
+    - I told my old man the future of bunnies is in the sky! He just wouldn't believe
+      it.
+    - 'One day I will get to the moon and prove it to him. '
+    - 'I will inform him what you think. '
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
   avatarSprite: {fileID: 1656577817}
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!212 &734408182
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8588,8 +8811,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3443396, g: 0.8335747, b: 1, a: 1}
+  m_Sprite: {fileID: -1583987572990886624, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8612,19 +8835,35 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.05999756, y: -0.37502766}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.68, y: 2.08}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.5601196, y: 1.7500553}
   m_EdgeRadius: 0
+--- !u!114 &734408184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734408179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62847710af71749f988dedc1dea9cd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IdleSprites:
+  - {fileID: -1583987572990886624, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 1866051663741332752, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!1 &734506766
 GameObject:
   m_ObjectHideFlags: 0
@@ -9309,8 +9548,8 @@ MonoBehaviour:
     - Shiba
     - Enemy
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 1836798033852717103, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -11121,8 +11360,8 @@ MonoBehaviour:
     - Shiba
     - Enemy
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 1836798033852717103, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -11238,7 +11477,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -11249,7 +11488,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &949888190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13436,7 +13680,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -13447,7 +13691,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &1104369312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15734,8 +15983,8 @@ MonoBehaviour:
     - Shiba
     - Enemy
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 1836798033852717103, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -15988,7 +16237,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -15999,7 +16248,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &1385507671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16823,8 +17077,8 @@ MonoBehaviour:
     - Shiba
     - Enemy
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 1836798033852717103, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
@@ -17956,7 +18210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598448896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.500002, y: -16.84, z: 0.8611022}
+  m_LocalPosition: {x: 22.500002, y: -16.52, z: 0.8611022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1199456272}
@@ -18446,8 +18700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: 165}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -295, y: 156.50002}
+  m_SizeDelta: {x: 100, y: 126.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656577817
 MonoBehaviour:
@@ -19184,7 +19438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
-  enemyMaxDistance: 3
+  enemyMaxDistance: 5
   IdleSprites:
   - {fileID: 2006093172732489611, guid: dc5a2d85257ac4f3a8982d7f9570a73d, type: 3}
   - {fileID: 1302714641473739208, guid: dc5a2d85257ac4f3a8982d7f9570a73d, type: 3}
@@ -19733,7 +19987,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -19744,7 +19998,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &1789491965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20528,7 +20787,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -20539,7 +20798,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &1827086594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21509,7 +21773,7 @@ MonoBehaviour:
     names:
     - shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
@@ -21520,7 +21784,12 @@ MonoBehaviour:
   textboxSprite: {fileID: 1527198972}
   dialogueComplete: 0
   ConvEnter: 0
-  indicator: {fileID: 3149037922685837026, guid: bda2fec0bc3634c0cae73f523305e676, type: 3}
+  indicator: {fileID: 3944782066791383556, guid: f37d07ee67d144f39b182bfca0c5d6fc, type: 3}
+  IdleSprites:
+  - {fileID: -1562942451712334158, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: 3748294131382059144, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  - {fileID: -6291291108219610821, guid: 68aaf5b24f7464efebb34fa7181e6205, type: 3}
+  animationSpeed: 0.3
 --- !u!61 &1944661070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21878,7 +22147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980028220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -135.84741, y: 24.500002, z: 0.8611022}
+  m_LocalPosition: {x: -135.82, y: 24.78, z: 0.8611022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1199456272}
@@ -23087,13 +23356,13 @@ MonoBehaviour:
     - ???
     - Shiba
     avatars:
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
-    - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
+    - {fileID: 5777572673424264135, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:
-    - find you finally!
+    - 'Find you finally! Took my god dam time! '
     - QAQ
   nameText: {fileID: 396046700}
   dialogueText: {fileID: 844068770}
