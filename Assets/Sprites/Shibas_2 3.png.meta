@@ -80,6 +80,12 @@ TextureImporter:
   - first:
       213: 9164813737308719115
     second: iceBottom2
+  - first:
+      213: -5912582243871692312
+    second: thinLand
+  - first:
+      213: 6727207856316694237
+    second: thinIce
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -672,7 +678,7 @@ TextureImporter:
         width: 68
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -693,7 +699,7 @@ TextureImporter:
         width: 68
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -714,7 +720,7 @@ TextureImporter:
         width: 68
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -722,6 +728,48 @@ TextureImporter:
       bones: []
       spriteID: b0808ec6985ff2f70800000000000000
       internalID: 9164813737308719115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thinLand
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 59
+        width: 68
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e9eeb086c942fda0800000000000000
+      internalID: -5912582243871692312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thinIce
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 51
+        width: 69
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde39fd27e7db5d50800000000000000
+      internalID: 6727207856316694237
       vertices: []
       indices: 
       edges: []

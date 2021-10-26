@@ -88,7 +88,7 @@ public class playerInteract : MonoBehaviour
 
     void displayNum()
     {
-        bulletText.text = (gameObject.GetComponent<playerShoot>().bulletCount + " bullets");
+        bulletText.text = (gameObject.GetComponent<playerShoot>().bulletCount+"");
         sparkleText.text = (starCount + " /12 sparkles");
     }
 
