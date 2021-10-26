@@ -31,6 +31,9 @@ public class tutorial : MonoBehaviour
         if (fadingText != null)
         {
             fadeCheck();
+        }if (fadingText = null)
+        {
+            Debug.Log("No text");
         }
         fadeOutCheck();
         //Debug.Log(timer);
@@ -71,6 +74,7 @@ public class tutorial : MonoBehaviour
         } else if (fadingText.color.a <0  && fadeComplete == true)
         {
             text.text = "";
+            fadingText.text = "";
             fadingText = null;
             timer = 0;
             textComplete = false;
