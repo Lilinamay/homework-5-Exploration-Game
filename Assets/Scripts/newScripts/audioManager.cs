@@ -10,9 +10,22 @@ public class audioManager : MonoBehaviour
     public AudioClip jumpSound;
     [Range(0f, 1f)] public float jumpVolume = 1.0f;
     [Space(10)]
-    public AudioClip dashSound;
-    [Range(0f, 1f)] public float dashVolume = 1.0f;
-    
+    public AudioClip shootSound;
+    [Range(0f, 1f)] public float shootVolume = 1.0f;
+    public AudioClip starSound;
+    [Range(0f, 1f)] public float starVolume = 1.0f;
+    public AudioClip bulletSound;
+    [Range(0f, 1f)] public float bulletVolume = 1.0f;
+    public AudioClip megaSound;
+    [Range(0f, 1f)] public float megaVolume = 1.0f;
+    public AudioClip hitSound;
+    [Range(0f, 1f)] public float hitVolume = 1.0f;
+    public AudioClip CheckSound;
+    [Range(0f, 1f)] public float CheckVolume = 1.0f;
+    public AudioClip tutorialSound;
+    [Range(0f, 1f)] public float tutorialVolume = 1.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +43,6 @@ public class audioManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
-        //Set the appropriate clips and volume on music and danger loop, then play
-        /*musicSource.clip = backgroundMusic;
-        musicSource.volume = musicVolume;
-        musicSource.Play();
-
-        dangerSource.clip = dangerLoop;
-        dangerSource.volume = 0f;
-        dangerSource.Play();
-        */
 
     }
     // Update is called once per frame

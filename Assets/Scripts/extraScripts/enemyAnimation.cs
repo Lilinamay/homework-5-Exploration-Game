@@ -86,6 +86,7 @@ public class enemyAnimation : MonoBehaviour
         {
             if (!hitanimation)
             {
+                audioManager.Instance.PlaySound(audioManager.Instance.hitSound, audioManager.Instance.hitVolume);
                 hitanimation = true;
                 Debug.Log("hitani");
             }

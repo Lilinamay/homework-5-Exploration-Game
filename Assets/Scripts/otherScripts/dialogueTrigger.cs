@@ -13,7 +13,7 @@ public class dialogueTrigger : MonoBehaviour
     [SerializeField] Image textboxSprite;
     
 
-    bool triggered = false;
+    public bool triggered = false;
     public bool dialogueComplete = false;
     public bool ConvEnter = false;
 

@@ -81,6 +81,7 @@ public class tutorial : MonoBehaviour
     {
         if (collision.gameObject.name == "player")
         {
+            audioManager.Instance.PlaySound(audioManager.Instance.tutorialSound, audioManager.Instance.tutorialVolume);
             text.enabled = true;
             text.text = inform;
             FindObjectOfType<checkManager>().itemList.Add(gameObject);

@@ -166,6 +166,7 @@ public class playerMove : MonoBehaviour
                 {
                     if (FindObjectOfType<circleSparkBar>().sparkles >= sparkleJump)
                     {
+                        audioManager.Instance.PlaySound(audioManager.Instance.jumpSound, audioManager.Instance.jumpVolume);
                         //dash = true;
                         duringDash = true;
                         haveDashed = true;
@@ -186,6 +187,7 @@ public class playerMove : MonoBehaviour
                     {
                         if (FindObjectOfType<circleSparkBar>().sparkles >= sparkleJump)
                         {
+                            audioManager.Instance.PlaySound(audioManager.Instance.jumpSound, audioManager.Instance.jumpVolume);
                             PlayerAnimation(JumpSprites);
                             Debug.Log("second jump");
                             SecondJumpMovement();

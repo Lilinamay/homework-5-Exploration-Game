@@ -86,6 +86,7 @@ public class tutorial2 : MonoBehaviour
         {
             if (Lily2.GetComponent<dialogueTrigger>().dialogueComplete)
             {
+                audioManager.Instance.PlaySound(audioManager.Instance.tutorialSound, audioManager.Instance.tutorialVolume);
                 text.enabled = true;
                 text.text = inform;
                 FindObjectOfType<checkManager>().itemList.Add(gameObject);

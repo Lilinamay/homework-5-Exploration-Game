@@ -39,6 +39,7 @@ public class playerInteract : MonoBehaviour
         if (collision.gameObject.tag == "stars")
         {
             //Destroy(collision.gameObject);
+            audioManager.Instance.PlaySound(audioManager.Instance.starSound, audioManager.Instance.starVolume);
             collision.gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(flower, transform.position);
             gameObject.GetComponent<checkManager>().itemList.Add(collision.gameObject);
@@ -48,6 +49,7 @@ public class playerInteract : MonoBehaviour
 
         if (collision.gameObject.tag == "bullet")
         {
+            audioManager.Instance.PlaySound(audioManager.Instance.bulletSound, audioManager.Instance.bulletVolume);
             //Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
             //AudioSource.PlayClipAtPoint(flower, transform.position);
@@ -80,6 +82,7 @@ public class playerInteract : MonoBehaviour
         if (collision.gameObject.name == "key")
         {
             key = true;
+            audioManager.Instance.PlaySound(audioManager.Instance.starSound, audioManager.Instance.starVolume);
             Destroy(collision.gameObject);
         }
 

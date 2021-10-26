@@ -54,7 +54,8 @@ public class playerShoot : MonoBehaviour
                     {
                         if (hasShoot == false)
                         {
-                                GameObject newBall = Instantiate(ball, transform.position, transform.rotation); //default to player's position/rotation
+                            audioManager.Instance.PlaySound(audioManager.Instance.shootSound, audioManager.Instance.shootVolume);
+                            GameObject newBall = Instantiate(ball, transform.position, transform.rotation); //default to player's position/rotation
                                 newBall.transform.SetParent(gameObject.transform);
                                 bulletCount--;
                                 float dir = 0f;
@@ -88,6 +89,7 @@ public class playerShoot : MonoBehaviour
                         {
                             if (timer <= holdTime)
                             {
+                                audioManager.Instance.PlaySound(audioManager.Instance.shootSound, audioManager.Instance.shootVolume);
                                 GameObject newBall = Instantiate(ball, transform.position, transform.rotation); //default to player's position/rotation
                                 newBall.transform.SetParent(gameObject.transform);
                                 bulletCount--;
@@ -109,6 +111,7 @@ public class playerShoot : MonoBehaviour
                             }
                             else if (timer > holdTime)
                             {
+                                audioManager.Instance.PlaySound(audioManager.Instance.megaSound, audioManager.Instance.megaVolume);
                                 FindObjectOfType<circleSparkBar>().sparkles = FindObjectOfType<circleSparkBar>().sparkles - sparkleShoot;
                                 GameObject newMega = Instantiate(mega, transform.position, transform.rotation); //default to player's position/rotation
                                 newMega.transform.SetParent(gameObject.transform);
