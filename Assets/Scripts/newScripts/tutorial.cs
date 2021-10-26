@@ -31,9 +31,6 @@ public class tutorial : MonoBehaviour
         if (fadingText != null)
         {
             fadeCheck();
-        }if (fadingText = null)
-        {
-            Debug.Log("No text");
         }
         fadeOutCheck();
         //Debug.Log(timer);
@@ -41,6 +38,7 @@ public class tutorial : MonoBehaviour
 
     void fadeInText(TMP_Text text, float fadeSpeed)
     {
+        Debug.Log("put in text fade");
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
         fadingText = text;
         fadeComplete = false;
@@ -51,7 +49,7 @@ public class tutorial : MonoBehaviour
         if (fadeComplete == false && fadingText.color.a < 1.0f)
         {
             fadingText.color = new Color(fadingText.color.r, fadingText.color.g, fadingText.color.b, fadingText.color.a + (Time.deltaTime * fadeSpeed));
-            //Debug.Log(fadingText.color.a);
+            Debug.Log(fadingText.color.a);
         }
         if (fadingText.color.a >= 1.0f)
         {
@@ -67,19 +65,23 @@ public class tutorial : MonoBehaviour
             Debug.Log("fade text");
             fadingText.color = new Color(fadingText.color.r, fadingText.color.g, fadingText.color.b, fadingText.color.a - (Time.deltaTime * fadeSpeed));
         }
-
-        if (fadingText.color.a >= 1.0f && fadeComplete == true)
+        if (fadingText != null)
         {
-            timer += Time.deltaTime;
-        } else if (fadingText.color.a <0  && fadeComplete == true)
-        {
-            text.text = "";
-            fadingText.text = "";
-            fadingText = null;
-            timer = 0;
-            textComplete = false;
-            gameObject.SetActive(false);
+            if (fadingText.color.a >= 1.0f && fadeComplete == true)
+            {
+                timer += Time.deltaTime;
+            }
+            else if (fadingText.color.a < 0 && fadeComplete == true)
+            {
+                text.text = "";
+                //fadingText.text = "";
+                fadingText = null;
+                timer = 0;
+                textComplete = false;
+                gameObject.SetActive(false);
+            }
         }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

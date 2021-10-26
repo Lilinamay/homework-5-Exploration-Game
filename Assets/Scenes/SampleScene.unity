@@ -27155,7 +27155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -66237,7 +66237,7 @@ MonoBehaviour:
     names:
     - Shiba
     avatars:
-    - {fileID: -2413806693520163455, guid: 777b75640f7414522aa9a729ce3589a5, type: 3}
+    - {fileID: 376139206267398921, guid: 9e723d2ca574d47a99ede86aa00ea5b6, type: 3}
     textboxs:
     - {fileID: 7482667652216324306, guid: c47d7a94eddcd408aad66cd718b07c3c, type: 3}
     sentences:

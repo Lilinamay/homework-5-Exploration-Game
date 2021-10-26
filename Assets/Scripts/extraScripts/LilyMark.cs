@@ -69,6 +69,12 @@ public class LilyMark : MonoBehaviour
                 FindObjectOfType<playerMove>().speed = 0;    //freeze player during dialogue
                 FindObjectOfType<playerMove>().jumpHeight = 0;
                 FindObjectOfType<playerMove>().canFlip = false;
+                if (sentences.Count == 0)   //if queue empty, end dialogue
+                {
+
+                    EndDialogue();
+                    return;
+                }
 
                 string name = names.Dequeue();
                 string sentence = sentences.Dequeue();
@@ -117,7 +123,7 @@ public class LilyMark : MonoBehaviour
 
     private void triggerConversation()
     {
-        if (gameObject.GetComponent<playerMove>().onFloor && haveTriggered == false && !dialogue2Complete&& triggerConv)
+        if (haveTriggered == false && !dialogue2Complete && triggerConv)
         {
             Debug.Log("trigger conversation");
             triggered = true;

@@ -66,19 +66,21 @@ public class tutorial2 : MonoBehaviour
             Debug.Log("fade text");
             fadingText.color = new Color(fadingText.color.r, fadingText.color.g, fadingText.color.b, fadingText.color.a - (Time.deltaTime * fadeSpeed));
         }
-
-        if (fadingText.color.a >= 1.0f && fadeComplete == true)
-        {
-            timer += Time.deltaTime;
+        if(fadingText != null) {
+            if (fadingText.color.a >= 1.0f && fadeComplete == true)
+            {
+                timer += Time.deltaTime;
+            }
+            else if (fadingText.color.a < 0 && fadeComplete == true)
+            {
+                //text.text = "";
+                fadingText = null;
+                timer = 0;
+                textComplete = false;
+                gameObject.SetActive(false);
+            }
         }
-        else if (fadingText.color.a < 0 && fadeComplete == true)
-        {
-            text.text = "";
-            fadingText = null;
-            timer = 0;
-            textComplete = false;
-            gameObject.SetActive(false);
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
